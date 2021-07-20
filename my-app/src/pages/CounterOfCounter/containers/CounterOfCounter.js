@@ -8,13 +8,11 @@ const CounterOfCounter = () => {
         countValue: 0
     })
     const countClick = [];
-    // const addCounter = useCallback (() => {
-        //     setCountValue(countValue + 1);
-        // }, [countValue])
-    const addCounter = () => {
-        countClick.push(countValue);
-        console.log(countClick)
-    }
+    const addCounter = useCallback (() => {
+            countClick.push(countValue);
+            console.log(countClick)
+        }, [countClick])
+    
     return (<FunctionalButtons
         countValue={countValue}
         addCounter={addCounter}

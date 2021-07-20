@@ -5,11 +5,14 @@ import FunctionalCounterContainers from './../../FunctionalCounter/container/Fun
 
 const FunctionalButtons = ({countValue, addCounter, countClick}) => {
     return (
-        <div className={styles.menuButtons}>
-            <button onClick={addCounter}>Add Counter</button>
-            <button>Remove Counter</button>
-            <button>Reset</button>
-            {countClick.map(() => <FunctionalCounterContainers />)}
+        <div>
+            <div className={styles.menuButtons}>
+                <button onClick={addCounter}>Add Counter</button>
+                <button>Remove Counter</button>
+                <button>Reset</button>
+            </div>
+            
+            <div>{countClick.map(() => <FunctionalCounterContainers />)}</div>
         </div>
         
     )
