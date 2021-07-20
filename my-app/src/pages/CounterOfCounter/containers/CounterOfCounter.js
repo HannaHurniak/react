@@ -15,8 +15,8 @@ const CounterOfCounter = () => {
     return (<FunctionalButtons
         countValue={countValue}
         addCounter={addCounter}
-        countClick={countClick}
-        // {[...Array(countClick)].map(() => <FunctionalCounterContainers />)}
+        // countClick={countClick}
+        countClick={countClick.map(() => <FunctionalCounterContainers />)}
         />)
 }
 export default CounterOfCounter;

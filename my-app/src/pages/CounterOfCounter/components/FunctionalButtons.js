@@ -9,8 +9,9 @@ const FunctionalButtons = ({countValue, addCounter, countClick}) => {
             <button onClick={addCounter}>Add Counter</button>
             <button>Remove Counter</button>
             <button>Reset</button>
+            {/* {countClick.map(() => <FunctionalCounterContainers />)} */}
         </div>
-        {[...Array(countClick)].map(() => <FunctionalCounterContainers />)}
+        
     )
 }
 
