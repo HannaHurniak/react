@@ -4,19 +4,22 @@ import FunctionalButtons from './../components/FunctionalButtons'
 import FunctionalCounterContainers from './../../FunctionalCounter/container/FunctionalCounterContainer'
 
 const CounterOfCounter = () => { 
-    const [countValue, setCountValue] = useState(0)
+    const [countValue, setCountValue] = useState({
+        countValue: 0
+    })
     const countClick = [];
     // const addCounter = useCallback (() => {
-    //     setCountValue(countValue + 1);
-    // }, [countValue])
+        //     setCountValue(countValue + 1);
+        // }, [countValue])
     const addCounter = () => {
-        countClick.push(setCountValue(countValue + 1));
+        countClick.push(countValue);
+        console.log(countClick)
     }
     return (<FunctionalButtons
         countValue={countValue}
         addCounter={addCounter}
-        // countClick={countClick}
-        countClick={countClick.map(() => <FunctionalCounterContainers />)}
+        countClick={countClick}
+        // countClick={countClick.map(() => <FunctionalCounterContainers />)}
         />)
 }
 export default CounterOfCounter;
