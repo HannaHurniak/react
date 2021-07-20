@@ -6,9 +6,13 @@ const configTitle = [
     path: ROUTES.HOME_PAGE,
   },
   {
-    title: "Counter Page",
+    title: "Simple Counter",
     path: ROUTES.COUNTER_PAGE,
-  }
+  },
+  {
+    title: "Counter of Counters",
+    path: ROUTES.FUNCTIONAL_PAGE,
+  },
 ]
 
 export default configTitle;

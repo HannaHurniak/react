@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react'
+import React, { Component } from 'react'
 
 import CounterView from './../components/CounterView'
 
@@ -33,14 +33,3 @@ export default class CounterContainers extends Component {
         )
     }
 }
-// const CounterContainers = () => { 
-//     const [counterState] = useState({countValue: 0})
-//     const handleIncrement = () => {
-//         ({countValue: counterState.countValue + 1});
-//     }
-
-//     return (<CounterView 
-//         handleIncrement={handleIncrement}
-//         />)
-// }
-// export default CounterContainers;

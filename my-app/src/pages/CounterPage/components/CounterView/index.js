@@ -23,4 +23,4 @@ CounterView.propTypes = {
     countValue: PropTypes.number.isRequired,
 }
 
-export default CounterView
+export default React.memo(CounterView);
