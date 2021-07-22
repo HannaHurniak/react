@@ -1,20 +1,28 @@
 import React from 'react'
 import styles from './styles.module.sass'
-import FunctionalCounterContainers from './../../FunctionalCounter/container/FunctionalCounterContainer'
+import CounterView from '../../CounterPage/components/CounterView'
 
 
-const FunctionalButtons = ({countValue, addCounter, countClick}) => {
+const FunctionalButtons = ({counters, handelAddCounter, handleCounterDelete, handleIncrement, handelResetAllCounters, handleDecrement, resetCountValue, totalSum}) => {
     return (
         <div>
             <div className={styles.menuButtons}>
-                <button onClick={addCounter}>Add Counter</button>
-                <button>Remove Counter</button>
-                <button>Reset</button>
+                <button onClick={handelAddCounter}>Add Counter</button> 
+                <button onClick={handelResetAllCounters}>Reset</button>
             </div>
-            
-            <div>{countClick.map(() => <FunctionalCounterContainers />)}</div>
+            <div className={styles.counters}>
+                {counters.map(({countValue}, index) => <CounterView 
+                    countValue={countValue} 
+                    onRemove={() => handleCounterDelete(index)} 
+                    handleIncrement={() => handleIncrement(index)}
+                    handleDecrement={() => handleDecrement(index)}
+                    resetCountValue={() => resetCountValue(index)}/>)}
+            </div>
+            <div className={styles.valuesCounters}>
+                <p>Number of counters: {counters.length}</p>
+                <p>Sum of counters: {totalSum}</p>
+            </div>
         </div>
-        
     )
 }
 

@@ -8,10 +8,12 @@
     font-size: 20px
     
 .wrapper
+    position: relative
     margin: 0 auto
     max-width: 800px
     width: 100%
-    border: 1px solid #852e7d
+    border: 2px solid #000000
+    margin-bottom: 20px
 
 .display
     @extend %pos
@@ -30,3 +32,9 @@
 .isEven
     @extend %pos
     background: #a3679b
+.buttonDelete
+    position: absolute
+    padding-left: 700px
+    button
+        background-color: #000
+        color: #fff
