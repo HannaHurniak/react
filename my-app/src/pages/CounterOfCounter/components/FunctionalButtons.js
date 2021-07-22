@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from './styles.module.sass'
 import CounterView from '../../CounterPage/components/CounterView'
+import { v4 as uuidv4 } from 'uuid';
 
 
 const FunctionalButtons = ({counters, handelAddCounter, handleCounterDelete, handleIncrement, handelResetAllCounters, handleDecrement, resetCountValue, totalSum}) => {
@@ -12,6 +13,7 @@ const FunctionalButtons = ({counters, handelAddCounter, handleCounterDelete, han
             </div>
             <div className={styles.counters}>
                 {counters.map(({countValue}, index) => <CounterView 
+                    key={uuidv4()}
                     countValue={countValue} 
                     onRemove={() => handleCounterDelete(index)} 
                     handleIncrement={() => handleIncrement(index)}
