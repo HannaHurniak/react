@@ -1,10 +1,14 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styles from './styles.module.sass'
 import CounterView from '../../CounterPage/components/CounterView'
 import { v4 as uuidv4 } from 'uuid';
 
 
-const FunctionalButtons = ({counters, handelAddCounter, handleCounterDelete, handleIncrement, handelResetAllCounters, handleDecrement, resetCountValue, totalSum}) => {
+const FunctionalCounters = ({counters, 
+    handelAddCounter, handleCounterDelete, 
+    handleIncrement, handelResetAllCounters, 
+    handleDecrement, resetCountValue, totalSum}) => {
     return (
         <div>
             <div className={styles.menuButtons}>
@@ -28,4 +32,11 @@ const FunctionalButtons = ({counters, handelAddCounter, handleCounterDelete, han
     )
 }
 
-export default React.memo(FunctionalButtons);
+FunctionalCounters.propTypes = {
+    counters: PropTypes.arrayOf(PropTypes.shape({
+        countValue: PropTypes.number
+    })),
+    totalSum: PropTypes.number,
+}
+
+export default React.memo(FunctionalCounters);

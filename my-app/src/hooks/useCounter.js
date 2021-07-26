@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react';
 
-const useContainer = (initialValue) => {
+const useCounter = (initialValue) => {
     const [countValue, setCountValue] = useState(initialValue);
 
     const handleIncrement = useCallback(() => {
@@ -20,4 +20,4 @@ const useContainer = (initialValue) => {
     return [countValue, handleIncrement, resetCountValue, handleDecrement];
 
 }
-export default useContainer;
+export default useCounter;

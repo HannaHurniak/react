@@ -1,8 +1,8 @@
 import CounterView from './../../CounterPage/components/CounterView/index';
-import { useContainer } from './../../../hooks'
+import { useCounter } from './../../../hooks'
 
 const FunctionalCounterContainers = () => { 
-    const [countValue, handleIncrement, resetCountValue, handleDecrement ] = useContainer(0);
+    const [countValue, handleIncrement, resetCountValue, handleDecrement ] = useCounter(0);
 
     return (<CounterView
         countValue={countValue}
@@ -11,4 +11,7 @@ const FunctionalCounterContainers = () => {
         handleDecrement={handleDecrement}
         />)
 }
+
+
+
 export default FunctionalCounterContainers;

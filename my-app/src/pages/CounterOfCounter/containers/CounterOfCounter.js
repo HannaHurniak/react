@@ -1,5 +1,5 @@
 import { useState, useCallback, useMemo } from 'react'
-import FunctionalButtons from './../components/FunctionalButtons'
+import FunctionalCounters from '../components'
 
 const CounterOfCounter = () => { 
     const [counters, setCounters] = useState([])
@@ -12,15 +12,13 @@ const CounterOfCounter = () => {
     }, [counters]);
 
     const handelResetAllCounters = useCallback(() => {
-        const copyCounters = [...counters];
-        copyCounters.splice(0, copyCounters.length);
-        setCounters(copyCounters)
-    }, [counters]);
+        setCounters([]);
+    }, []);
 
     const handleCounterDelete = useCallback((index) => {
-        const counterDelete = [...counters];
-        counterDelete.splice(index, 1);
-        const updateCountersDelete = counterDelete.map((counter) => ({
+        const countersCopy = [...counters];
+        countersCopy.splice(index, 1);
+        const updateCountersDelete = countersCopy.map((counter) => ({
             countValue: counter.countValue % 2 !== 0 ? counter.countValue - 1 : counter.countValue
         }))
         setCounters(updateCountersDelete);
@@ -28,16 +26,16 @@ const CounterOfCounter = () => {
 
     const handleIncrement = useCallback((index) => {
         const copyCounters = [...counters];
-        const findCounter = copyCounters[index];
-        findCounter.countValue = findCounter.countValue + 1;
+        const foundCounter = copyCounters[index];
+        foundCounter.countValue = foundCounter.countValue + 1;
         setCounters(copyCounters);
     }, [counters]);
 
     const handleDecrement = useCallback((index) => {
        if (counters[index].countValue > 0){
         const copyCounters = [...counters];
-        const findCounter = copyCounters[index];
-        findCounter.countValue = findCounter.countValue - 1;
+        const foundCounter = copyCounters[index];
+        foundCounter.countValue = foundCounter.countValue - 1;
         setCounters(copyCounters);
         }
     }, [counters]);
@@ -49,11 +47,9 @@ const CounterOfCounter = () => {
         setCounters(copyCounters);
     }, [counters]);
 
-
-    const totalSum = useMemo(() => {
-        return counters.reduce((acc, counter) => acc + counter.countValue, 0)
-    }, [counters])
-    return (<FunctionalButtons
+    const totalSum = useMemo(() => counters.reduce((acc, counter) => acc + counter.countValue, 0), [counters])
+    
+    return (<FunctionalCounters
         counters={counters}
         handelAddCounter={handelAddCounter}
         handleCounterDelete={handleCounterDelete}

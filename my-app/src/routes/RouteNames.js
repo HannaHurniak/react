@@ -1,6 +1,6 @@
 const ROUTES = {
-    HOME_PAGE: "/",
     COUNTER_PAGE: "/counter",
-    FUNCTIONAL_PAGE: "/functional"
+    FUNCTIONAL_PAGE: "/functional",
+    TODO_LIST_PAGE: "/todo-list"
 }
 export default ROUTES;

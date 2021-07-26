@@ -6,12 +6,19 @@ import { BrowserRouter } from 'react-router-dom';
 import Routes from './routes/Routes';
 import MainLayout from './pages/MainLayout/MainLayout';
 
+import { Provider } from 'react-redux'
+import { configureStore } from './store/configureStore'
+
+const store = configureStore();
+
 ReactDOM.render(
-  <BrowserRouter>
-    <MainLayout>
-      <Routes />
-    </MainLayout>
-  </BrowserRouter>,
+  <Provider store={store}>
+    <BrowserRouter>
+      <MainLayout>
+        <Routes />
+      </MainLayout>
+    </BrowserRouter>
+  </Provider>,
   document.getElementById('root')
 );
 
