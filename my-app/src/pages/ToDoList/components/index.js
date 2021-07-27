@@ -4,11 +4,11 @@ import styles from './styles.module.sass'
 import TasksComponent from './../../Tasks/components/TasksComponents'
 import { v4 as uuidv4 } from 'uuid';
 
-const ToDoListComponent = ({inputValue, handleChange, handleAddTask, inputValueState}) => {
+const ToDoListComponent = ({inputValue, handleChange, handleAddTask, tasks}) => {
     return (
         <div className={styles.wrapper}>
             <div>
-                {inputValueState.map((input) => (<TasksComponent key={uuidv4()} inputValue={inputValue.inputValue}/>))}
+                {tasks.map((input, index) => (<TasksComponent key={uuidv4()} index={index} inputValue={input.taskText}/>))}
             </div>
             <div className={styles.form}>
                 <form>

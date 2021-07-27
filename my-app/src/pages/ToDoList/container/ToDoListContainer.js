@@ -7,21 +7,21 @@ const ToDoListContainer = () => {
     const [inputValue, setInputValue] = useState('');
     const dispatch = useDispatch();
 
-    const inputValueState = useSelector((state) => state.managerReducer.inputValue)
+    const { tasks } = useSelector((state) => state.managerReducer)
 
     const handleChange = useCallback((event) => {
         setInputValue(event.target.value)
     }, [])
 
     const handleAddTask = useCallback((event) => {
-        dispatch(ADD_NEW_TASK());
+        dispatch(ADD_NEW_TASK(inputValue));
         event.preventDefault();
-    }, [dispatch])
+    }, [dispatch, inputValue])
 
     return (<ToDoListComponent inputValue={inputValue} 
         handleChange={handleChange}
         handleAddTask={handleAddTask}
-        inputValueState={inputValueState}
+        tasks={tasks}
         />)
 }
 

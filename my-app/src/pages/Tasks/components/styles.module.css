@@ -2,5 +2,28 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  min-width: 250px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: auto;
+  background-color: #e2a6a6;
+}
+
+.wrapper button {
+  height: 30px;
+}
+
+.wrapper p {
+  margin-left: 5px;
+}
+
+.infoTask {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 /*# sourceMappingURL=styles.module.css.map */

@@ -3,15 +3,16 @@ import { handleActions } from 'redux-actions'
 import * as actions from './../actions/index'
 
 const defaultState = {
-    inputValue: []
+    tasks: []
 }
 
 const managerReducer = handleActions({
-    [actions.ADD_NEW_TASK]: (state) => {
-        const updateInputValue = [...state.inputValue, { inputValue: 'hi' }];
+    [actions.ADD_NEW_TASK]: (state, { payload }) => {
+        const updateInputValue = [...state.tasks, { taskText: payload }];
+        console.log(updateInputValue);
         return {
             ...state,
-            inputValue: updateInputValue,
+            tasks: updateInputValue,
         }
     },
 
