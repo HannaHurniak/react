@@ -1,0 +1,53 @@
+.display, .isOdd, .isEven {
+  width: 50%;
+  margin: auto;
+  margin-top: 30px;
+  border: 1px solid black;
+  border-radius: 15px;
+  text-align: center;
+  font-size: 20px;
+}
+
+.wrapper {
+  position: relative;
+  margin: 0 auto;
+  max-width: 800px;
+  width: 100%;
+  border: 2px solid #000000;
+  margin-bottom: 20px;
+}
+
+.buttonsWrapper {
+  margin: auto;
+  width: 400px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.isOdd {
+  background: #67b9c7;
+}
+
+.isEven {
+  background: #a3679b;
+}
+
+.buttonDelete {
+  position: absolute;
+  padding-left: 700px;
+}
+
+.buttonDelete button {
+  background-color: #000;
+  color: #fff;
+}
+/*# sourceMappingURL=styles.module.css.map */
