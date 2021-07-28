@@ -3,13 +3,12 @@ import { handleActions } from 'redux-actions'
 import * as actions from './../actions/index'
 
 const defaultState = {
-    tasks: []
+    tasks: [],
 }
 
 const managerReducer = handleActions({
     [actions.ADD_NEW_TASK]: (state, { payload }) => {
-        const updateInputValue = [...state.tasks, { taskText: payload, isCompleted: false }];
-        // console.log(updateInputValue);
+        const updateInputValue = [...state.tasks, { taskText: payload, isCompleted: false, isEditMode: false, editText: '' }];
         return {
             ...state,
             tasks: updateInputValue,
@@ -26,12 +25,36 @@ const managerReducer = handleActions({
     [actions.COMPLETE_TASK]: (state, { payload }) => {
         const updateInputValue = [...state.tasks];
         updateInputValue[payload].isCompleted = true;
-        console.log(updateInputValue);
         return {
             ...state,
             tasks: updateInputValue,
         }
     },
+    [actions.EDIT_TASK]: (state, { payload }) => {
+        const updateInputValue = [...state.tasks];
+        updateInputValue[payload].isEditMode = true;
+        return {
+            ...state,
+            tasks: updateInputValue,
+        }
+    },
+    [actions.CANCEL_EDIT_TASK]: (state, { payload }) => {
+        const updateInputValue = [...state.tasks];
+        updateInputValue[payload].isEditMode = false;
+        return {
+            ...state,
+            tasks: updateInputValue,
+        }
+    },
+    [actions.SAVE_EDIT_TASK]: (state, { payload }) => {
+        const updateInputValue = [...state.tasks];
+        updateInputValue[payload].isEditMode = false;
+        return {
+            ...state,
+            tasks: updateInputValue,
+        }
+    },
+    
 
 }, defaultState)
 
